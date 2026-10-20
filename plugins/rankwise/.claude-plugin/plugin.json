@@ -1,0 +1,19 @@
+{
+  "name": "rankwise",
+  "displayName": "Rankwise",
+  "version": "1.0.0",
+  "description": "See how often AI search engines cite your brand, and fix the gaps. Connects the Rankwise MCP server and adds two skills: turn an AI visibility audit into content briefs, and read a domain's AI share of voice.",
+  "author": {
+    "name": "Rankwise",
+    "url": "https://tryrankwise.com"
+  },
+  "homepage": "https://tryrankwise.com/api-docs#mcp",
+  "repository": "https://github.com/0xrome/rankwise-claude-plugin",
+  "license": "MIT",
+  "keywords": ["ai-search", "geo", "ai-visibility", "share-of-voice", "seo", "mcp"],
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://tryrankwise.com/api-docs#mcp",
+  "supportUrl": "https://tryrankwise.com/contact",
+  "privacyPolicyUrl": "https://tryrankwise.com/privacy",
+  "termsOfServiceUrl": "https://tryrankwise.com/terms"
+}

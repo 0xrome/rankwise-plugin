@@ -1,0 +1,16 @@
+{
+  "name": "rankwise",
+  "description": "The Rankwise plugin: AI search visibility, citations and content briefs.",
+  "owner": {
+    "name": "Rankwise",
+    "url": "https://tryrankwise.com"
+  },
+  "plugins": [
+    {
+      "name": "rankwise",
+      "source": "./plugins/rankwise",
+      "description": "See how often AI search engines cite your brand, and fix the gaps.",
+      "category": "marketing"
+    }
+  ]
+}

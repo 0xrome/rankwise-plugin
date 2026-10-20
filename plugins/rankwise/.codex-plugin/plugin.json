@@ -1,0 +1,91 @@
+{
+  "name": "rankwise",
+  "version": "1.0.0",
+  "description": "See how often AI search engines cite your brand, and fix the gaps. Connects the Rankwise MCP server and adds two skills: turn an AI visibility audit into content briefs, and read a domain's AI share of voice.",
+  "author": {
+    "name": "Rankwise",
+    "url": "https://tryrankwise.com"
+  },
+  "homepage": "https://tryrankwise.com/api-docs#mcp",
+  "repository": "https://github.com/0xrome/rankwise-claude-plugin",
+  "license": "MIT",
+  "keywords": ["ai-search", "geo", "ai-visibility", "share-of-voice", "seo", "mcp"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Rankwise",
+    "shortDescription": "Get your brand cited by AI",
+    "longDescription": "Rankwise measures how often AI search engines cite your brand and helps you close the gaps. Read your AI share of voice, compare it with competitors, see which tracked questions cite you and which do not, and track citations won and lost. Turn an AI visibility audit into content briefs tied to measured gaps. Rankwise reads data from the workspace you connect. It asks before it spends credits, and it never publishes an article unless you ask. Rankwise does not edit your website: technical fixes are listed for you or your developer to apply.",
+    "developerName": "Rankwise",
+    "category": "Productivity",
+    "capabilities": ["Read AI share of voice", "Read AI citations", "Score AI visibility", "Draft content briefs"],
+    "websiteURL": "https://tryrankwise.com",
+    "supportURL": "https://tryrankwise.com/contact",
+    "privacyPolicyURL": "https://tryrankwise.com/privacy",
+    "termsOfServiceURL": "https://tryrankwise.com/terms",
+    "defaultPrompt": [
+      "What is my AI share of voice, and how do I compare with competitors?",
+      "Why don't AI engines cite my brand? Turn my audit into content briefs.",
+      "Which AI citations did we win or lose in the last 30 days?"
+    ],
+    "brandColor": "#000000",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
+  },
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Read AI share of voice",
+              "prompt": "What is my AI share of voice, and how do I compare with competitors?",
+              "tools_triggered": "get_workspace, list_domains, get_share_of_voice",
+              "expected_behavior": "Report the measured share of voice, its capture date and the competitor leaderboard. A missing snapshot is reported as not measured, never as 0%."
+            },
+            {
+              "description": "Turn an audit into briefs",
+              "prompt": "Why don't AI engines cite my brand? Turn my audit into content briefs.",
+              "tools_triggered": "get_scorecard, list_citations, list_opportunities, create_brief",
+              "expected_behavior": "Show the weakest scorecard dimensions and the uncited questions, propose at most five briefs tied to measured gaps, and create draft briefs only after the user agrees."
+            },
+            {
+              "description": "Citations won and lost",
+              "prompt": "Which AI citations did we win or lose in the last 30 days?",
+              "tools_triggered": "list_domains, list_visibility_events",
+              "expected_behavior": "List the citations won and lost in the last 30 days, each with its question and engine."
+            },
+            {
+              "description": "Score a domain",
+              "prompt": "Score example.com for AI search readiness.",
+              "tools_triggered": "score_ai_visibility",
+              "expected_behavior": "Return the on-page readiness score for the domain with its weakest checks."
+            },
+            {
+              "description": "Check AI crawler access",
+              "prompt": "Can AI crawlers reach my site?",
+              "tools_triggered": "list_domains, check_ai_crawler_access",
+              "expected_behavior": "Report which AI crawlers the site's robots rules allow or block, without changing the site."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Editing the user's website",
+              "prompt": "Edit my website's robots.txt for me."
+            },
+            {
+              "description": "Billing changes",
+              "prompt": "Upgrade my Rankwise plan and charge my card."
+            },
+            {
+              "description": "Data outside the connected workspace",
+              "prompt": "Show me another company's Rankwise workspace."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "This plugin does not sell products or process payments."
+      }
+    }
+  }
+}

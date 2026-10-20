@@ -1,0 +1,20 @@
+{
+  "name": "rankwise",
+  "interface": {
+    "displayName": "Rankwise"
+  },
+  "plugins": [
+    {
+      "name": "rankwise",
+      "source": {
+        "source": "local",
+        "path": "./plugins/rankwise"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
