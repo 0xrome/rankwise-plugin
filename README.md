@@ -7,7 +7,7 @@ Rankwise measures how often AI search engines cite your brand. This plugin bring
 In Claude Code, run:
 
 ```
-/plugin marketplace add 0xrome/rankwise-claude-plugin
+/plugin marketplace add 0xrome/rankwise-plugin
 /plugin install rankwise@rankwise
 ```
 

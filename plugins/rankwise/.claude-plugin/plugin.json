@@ -8,7 +8,7 @@
     "url": "https://tryrankwise.com"
   },
   "homepage": "https://tryrankwise.com/api-docs#mcp",
-  "repository": "https://github.com/0xrome/rankwise-claude-plugin",
+  "repository": "https://github.com/0xrome/rankwise-plugin",
   "license": "MIT",
   "keywords": ["ai-search", "geo", "ai-visibility", "share-of-voice", "seo", "mcp"],
   "icon": "./assets/icon.png",
